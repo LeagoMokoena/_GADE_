@@ -1,0 +1,13 @@
+[NAME=RACER]I can't wait to get this race started! Uhhh... What race is this again?
+
+[NAME=MANAGER]Really!? You've been racing for this long and still don't know the different types of races?
+
+[NAME=RACER]A race is a race, nothing else matters.
+
+[NAME=MANAGER]Why do I even bother... This is the Checkpoint Race, it's basically a warm-up. You just have to go through all the checkpoints within a time limit.
+
+Each checkpoint you reach will give you some exstra time to finish the race. You win by reaching the last checkpoint within the time limit.
+
+[NAME=RACER]Oh, that's easy. Let's go!
+
+EndQueue
