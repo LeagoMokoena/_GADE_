@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class WaypointManager : MonoBehaviour
 {
+    Node head;
+    public static WaypointManager Instance;
+    public bool found = false;
 
-    public static WaypointManager instance;
 
     [SerializeField] private Transform waypoint1Transform;
     [SerializeField] private Transform waypoint2Transform;
@@ -16,8 +18,8 @@ public class WaypointManager : MonoBehaviour
     public LinkedList<Transform> waypoints = new LinkedList<Transform>();
     private void Awake()
     {
-        if(instance == null)
-            instance = this;
+        if(Instance == null)
+            Instance = this;
         else
             Destroy(gameObject);
     }
@@ -37,18 +39,36 @@ public class WaypointManager : MonoBehaviour
 
     }
 
-    private Node head;
-    private int count;
 
-
-    public object GetNextWaypoint(int currentWaypointID)
+    public Transform GetNextWaypoint(int currentWaypointID)
     {
-       Node node = this.head;
-        for(int i = 0; i < currentWaypointID; i++)
-            node = node.Next;
+       Node node = head;
+        int count = 0;
+        while(found != false)
+        {
+            if(count == currentWaypointID)
+            {
+                found = true;
+            }
+            else
+            {
+                count++;
+                node = node.next;
+            }
+        }
 
-        return node;
+        return node.data;
+        
     
+    }
+
+    public void push(Transform newdata)
+    {
+        Node newnode = new Node(newdata);
+
+        newnode.next = head;
+
+        head = newnode;
     }
 
     // Update is called once per frame

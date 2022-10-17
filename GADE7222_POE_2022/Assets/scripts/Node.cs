@@ -4,24 +4,12 @@ using UnityEngine;
 
 public class Node : MonoBehaviour
 {
-    private object data;
-    private Node next;
+    public Transform data;
+    public Node next;
 
-    public Node(object data, Node next)
+    public Node(Transform d)
     {
-        this.data = data;
-        this.next = next;
+        data = d;
+        next = null;
     }   
-
-    public object Data
-    {
-        get { return this.data; }
-        set { this.data = value; }
-    }
-
-    public Node Next
-    {
-        get { return this.next; }
-        set { this.next = value; }
-    }
 }
